@@ -85,7 +85,19 @@ a:hover{ text-decoration:underline }
 /* ==== 강제 우선순위(기존 규칙 덮어쓰기) ==== */
 .home{ max-width:960px !important }
 .mag-grid{ gap:10px !important; grid-template-columns:1.55fr 1fr !important }
-.card{ border:2px solid #000 !important; box-shadow:none !important; padding:8px !important }
-.feature .img{ height:300px !important }
-.side .img{ height:140px !important }
+.
+./* 이미지 높이 고정 제거 */
+.feat.card {
+  display: inline-block;   /* 내용 크기에 맞게 */
+  padding: 10px 14px;      /* 안쪽 여백만 남김 */
+  border: 1.5px solid #000;
+  border-radius: 6px;
+  box-shadow: none;
+}
+ure .img,
+.side .img,
+.panel .img {
+  height: auto;        /* 내용 크기에 따라 자동 */
+  min-height: 0;       /* 여백 강제 없음 */
+}
 .mast-title{ font-size:36px !important; margin:0 0 2px !important }
