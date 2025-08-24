@@ -1,0 +1,38 @@
+/* 배경: 파란 점 모눈 */
+body {
+  background:#fff;
+  background-image: radial-gradient(circle at 1px 1px, rgba(33,85,255,.16) 1px, transparent 1px);
+  background-size:18px 18px;
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",
+              system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.8;
+  color:#0b0f18;
+}
+
+/* 링크 색 */
+a { color:#2155ff; }
+
+/* 만년필 느낌: 제목 폰트 */
+.site-title,
+.post-title,
+.page-title,
+.page-heading {
+  font-family:"Nanum Myeongjo","Cormorant Garamond",ui-serif,Georgia,serif;
+  font-style:italic;
+  letter-spacing:.3px;
+}
+
+/* 네비 메뉴 간격 */
+.site-nav .page-link {
+  padding:0 .4rem;
+}
+
+/* 카드 박스 (노트/저널에 활용 가능) */
+.card {
+  background:#fff;
+  border:1px solid #e6ebff;
+  border-radius:14px;
+  padding:16px;
+  box-shadow:0 1px 0 rgba(33,85,255,.05);
+  margin:14px 0;
+}
