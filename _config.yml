@@ -1,0 +1,20 @@
+
+title: "My Site"
+description: "Write your own description."
+theme: minima
+author:
+  name: "Your Name"
+  email: "you@example.com"
+minima:
+  skin: classic
+
+# Show these pages in the top navigation
+header_pages:
+  - journal.md
+  - notes.md
+  - library.md
+  - study.md
+  - contact.md
+
+plugins:
+  - jekyll-feed
