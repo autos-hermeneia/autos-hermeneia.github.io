@@ -3,16 +3,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 테마 CSS -->
+  <!-- 기본 테마 CSS -->
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
 
-  <!-- 성숙한 아날로그 톤 폰트: 타이틀 EB Garamond, 본문 Noto Serif KR -->
+  <!-- 폰트: EB Garamond (타이틀) + Noto Serif KR (본문) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,700;1,500;1,700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- 커스텀 CSS -->
-  <link rel="stylesheet" href="{{ '/assets/custom.css' | relative_url }}">
+  <!-- 내 커스텀 CSS (캐시 무력화: v=blue2) -->
+  <link rel="stylesheet" href="{{ '/assets/custom.css?v=blue2' | relative_url }}">
 
   {%- seo -%}
 </head>
