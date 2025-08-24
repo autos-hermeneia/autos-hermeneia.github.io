@@ -1,20 +1,11 @@
-
 title: "situation vécue"
 description: "근사치"
 theme: minima
 
-  name: "Yeonsu"
-
-minima:
-  skin: classic
-
-# Show these pages in the top navigation
+# 상단 메뉴에 표시할 페이지들
 header_pages:
   - journal.md
   - notes.md
-  - library.md
   - study.md
+  - library.md
   - contact.md
-
-plugins:
-  - jekyll-feed
