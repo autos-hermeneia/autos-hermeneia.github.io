@@ -1,0 +1,12 @@
+{%- assign title = page.title | default: site.title -%}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 테마 기본 CSS -->
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  <!-- 내 커스텀 CSS (반드시 이 줄 유지) -->
+  <link rel="stylesheet" href="{{ '/assets/custom.css' | relative_url }}">
+
+  {%- seo -%}
+</head>
