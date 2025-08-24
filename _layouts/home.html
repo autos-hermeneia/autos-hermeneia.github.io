@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<div class="home sketch-bg">
+  <!-- 상단 타이틀 박스 (낙서 라벨) -->
+  <header class="hero-label panel-sketch">
+    <div class="tape tape-l"></div>
+    <div class="tape tape-r"></div>
+    <h1 class="scribble-title">{{ site.title }}</h1>
+    {% if site.description %}<p class="scribble-sub">{{ site.description }}</p>{% endif %}
+  </header>
+
+  <!-- 최신 글 4개를 만화 2x2 패널로 -->
+  <section class="grid panels-2x2">
+    {% assign items = site.posts | slice: 0, 4 %}
+    {% for post in items %}
+      {% assign idx = forloop.index0 %}
+      {% assign style = post.panel_style | default: 'auto' %}
+      <article class="panel panel-{{ style }} panel-{{ idx | modulo: 4 }}">
+        <a class="panel-link" href="{{ post.url | relative_url }}">
+          {% if post.thumb %}
+            <div class="panel-img" style="background-image:url('{{ post.thumb | relative_url }}')"></div>
+          {% else %}
+            <div class="panel-img panel-placeholder"></div>
+          {% endif %}
+
+          <div class="panel-meta">
+            <h2 class="panel-title">{{ post.title }}</h2>
+            <p class="panel-date">{{ post.date | date: "%Y-%m-%d" }}</p>
+            {% if post.excerpt %}
+              <p class="panel-excerpt">{{ post.excerpt | strip_html | truncate: 90 }}</p>
+            {% endif %}
+          </div>
+        </a>
+
+        <!-- 낙서점 3개 -->
+        <div class="doodles">• • •</div>
+      </article>
+    {% endfor %}
+  </section>
+</div>
