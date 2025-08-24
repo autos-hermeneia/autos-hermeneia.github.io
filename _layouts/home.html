@@ -2,41 +2,72 @@
 layout: default
 ---
 
-<div class="home sketch-bg">
-  <!-- 상단 타이틀 박스 (낙서 라벨) -->
-  <header class="hero-label panel-sketch">
-    <div class="tape tape-l"></div>
-    <div class="tape tape-r"></div>
-    <h1 class="scribble-title">{{ site.title }}</h1>
-    {% if site.description %}<p class="scribble-sub">{{ site.description }}</p>{% endif %}
+<div class="home analog-bg">
+  <header class="masthead">
+    <h1 class="mast-title">{{ site.title }}</h1>
+    {% if site.description %}<p class="mast-sub">{{ site.description }}</p>{% endif %}
   </header>
 
-  <!-- 최신 글 4개를 만화 2x2 패널로 -->
-  <section class="grid panels-2x2">
-    {% assign items = site.posts | slice: 0, 4 %}
-    {% for post in items %}
-      {% assign idx = forloop.index0 %}
-      {% assign style = post.panel_style | default: 'auto' %}
-      <article class="panel panel-{{ style }} panel-{{ idx | modulo: 4 }}">
-        <a class="panel-link" href="{{ post.url | relative_url }}">
-          {% if post.thumb %}
-            <div class="panel-img" style="background-image:url('{{ post.thumb | relative_url }}')"></div>
-          {% else %}
-            <div class="panel-img panel-placeholder"></div>
-          {% endif %}
+  {%- assign posts = site.posts -%}
+  {%- assign f = posts[0] -%}
+  {%- assign s = posts[1] -%}
+  {%- assign t = posts[2] -%}
 
-          <div class="panel-meta">
-            <h2 class="panel-title">{{ post.title }}</h2>
-            <p class="panel-date">{{ post.date | date: "%Y-%m-%d" }}</p>
-            {% if post.excerpt %}
-              <p class="panel-excerpt">{{ post.excerpt | strip_html | truncate: 90 }}</p>
-            {% endif %}
-          </div>
-        </a>
+  <section class="mag-grid">
+    <!-- FEATURE (좌측 큰 카드) -->
+    {% if f %}
+    <article class="feature card">
+      <a class="photo {{ f.frame | default: 'frame' }}" href="{{ f.url | relative_url }}">
+        <div class="img" style="background-image:url('{{ f.thumb | default: '/assets/placeholder.jpg' | relative_url }}')"></div>
+        <span class="tape tl"></span><span class="tape tr"></span>
+      </a>
+      <div class="meta">
+        <h2 class="title"><a href="{{ f.url | relative_url }}">{{ f.title }}</a></h2>
+        <p class="date">{{ f.date | date: "%Y.%m.%d" }}</p>
+        {% if f.excerpt %}<p class="excerpt">{{ f.excerpt | strip_html | truncate: 140 }}</p>{% endif %}
+      </div>
+    </article>
+    {% endif %}
 
-        <!-- 낙서점 3개 -->
-        <div class="doodles">• • •</div>
+    <!-- 우측 상단/하단 카드 -->
+    {% if s %}
+    <article class="side top card">
+      <a class="photo {{ s.frame | default: 'frame' }}" href="{{ s.url | relative_url }}">
+        <div class="img" style="background-image:url('{{ s.thumb | default: '/assets/placeholder.jpg' | relative_url }}')"></div>
+        <span class="tape tl"></span>
+      </a>
+      <div class="meta">
+        <h3 class="title"><a href="{{ s.url | relative_url }}">{{ s.title }}</a></h3>
+        <p class="date">{{ s.date | date: "%Y.%m.%d" }}</p>
+      </div>
+    </article>
+    {% endif %}
+
+    {% if t %}
+    <article class="side bottom card">
+      <a class="photo {{ t.frame | default: 'frame' }}" href="{{ t.url | relative_url }}">
+        <div class="img" style="background-image:url('{{ t.thumb | default: '/assets/placeholder.jpg' | relative_url }}')"></div>
+        <span class="tape bl"></span>
+      </a>
+      <div class="meta">
+        <h3 class="title"><a href="{{ t.url | relative_url }}">{{ t.title }}</a></h3>
+        <p class="date">{{ t.date | date: "%Y.%m.%d" }}</p>
+      </div>
+    </article>
+    {% endif %}
+  </section>
+
+  <!-- 더 보기: 신문 지면처럼 두 단 컬럼 -->
+  <section class="more">
+    <h2 class="section-title">More</h2>
+    <div class="columns">
+      {% for p in site.posts offset:3 limit:12 %}
+      <article class="note">
+        <h4><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h4>
+        <p class="date">{{ p.date | date: "%Y.%m.%d" }}</p>
+        {% if p.excerpt %}<p class="excerpt">{{ p.excerpt | strip_html | truncate: 110 }}</p>{% endif %}
       </article>
-    {% endfor %}
+      {% endfor %}
+    </div>
   </section>
 </div>
