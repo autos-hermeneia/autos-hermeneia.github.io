@@ -48,3 +48,79 @@ a { color:#2155ff; }
   }
   a { color:#9bb3ff; }
 }
+/* = 기본 배경: 파란 점 모눈 */
+.sketch-bg{
+  background:#fff;
+  background-image: radial-gradient(circle at 1px 1px, rgba(33,85,255,.14) 1px, transparent 1px);
+  background-size:18px 18px;
+}
+
+/* = 폰트: 손글씨 톤 */
+body{ font-family:"Nanum Pen Script","Caveat",ui-rounded,ui-sans-serif,system-ui; line-height:1.9; font-size:20px; }
+.site-title,.post-title,.page-title,.page-heading{ font-family:"Caveat","Nanum Pen Script",serif; }
+
+/* = 상단 라벨(테이프 붙인 메모지) */
+.hero-label{
+  position:relative; margin:8px 0 16px; padding:12px 16px;
+  display:inline-block; background:#fffef8; border:3px solid #111; border-radius:10px;
+  box-shadow:4px 4px 0 #111;
+  transform:rotate(-0.8deg);
+}
+.tape{ position:absolute; width:64px; height:16px; background:rgba(255,240,180,.9);
+  transform:rotate(-8deg); top:-10px; box-shadow:1px 1px 0 rgba(0,0,0,.25); }
+.tape-l{ left:10px }
+.tape-r{ right:10px; transform:rotate(6deg) }
+.scribble-title{ margin:0; font-size:44px; letter-spacing:.5px }
+.scribble-sub{ margin:0; color:#6b7280 }
+
+/* = 2x2 패널 그리드 */
+.grid{ display:grid; gap:16px }
+.panels-2x2{ grid-template-columns:1fr; }
+@media(min-width:880px){ .panels-2x2{ grid-template-columns:1fr 1fr } }
+
+/* = 패널 공통: 두꺼운 먹선 + 살짝 기울기 */
+.panel{
+  position:relative; background:#fff; border:3px solid #111; border-radius:14px;
+  box-shadow:6px 6px 0 #111; overflow:hidden; transform:rotate(-.6deg);
+}
+.panel-link{ color:inherit; text-decoration:none; display:block; }
+.panel-img{
+  height:240px; background-size:cover; background-position:center; border-bottom:2px solid #111;
+}
+.panel-placeholder{ background:
+  repeating-linear-gradient(135deg,#e8eefc 0 12px, #cfe0ff 12px 13px); }
+
+/* 텍스트 영역 (손글씨 메모 느낌) */
+.panel-meta{ padding:14px 16px }
+.panel-title{ font-family:"Caveat","Nanum Pen Script",serif; font-size:32px; margin:0 0 6px }
+.panel-date{ color:#6b7280; margin:0 0 6px }
+.panel-excerpt{ color:#374151; margin:0 }
+
+/* 낙서점 */
+.doodles{ position:absolute; right:12px; bottom:8px; letter-spacing:6px; color:#111; }
+
+/* = 스타일 변형: 스케치 4종  (그림 참조) */
+
+/* A: 위 타이틀 바 + 큰 이미지 (기본) -> 위 HTML 구조 그대로 */
+
+/* B: 대각선 컷 (우상향 스트립) */
+.panel-b .panel-img{ position:relative; }
+.panel-b .panel-img::before{
+  content:""; position:absolute; inset:0; background:
+   linear-gradient(120deg, transparent 0 44%, rgba(255,255,255,.85) 44% 56%, transparent 56% 100%);
+  border-bottom:2px solid #111;
+}
+
+/* C: 좌측 텍스트 / 우측 큰 이미지 */
+.panel-c{ display:grid; grid-template-columns:1fr 1.1fr; }
+.panel-c .panel-img{ height:auto; border-left:2px solid #111; border-bottom:none }
+
+/* D: 좌측 큰 이미지 / 우측 텍스트 */
+.panel-d{ display:grid; grid-template-columns:1.1fr 1fr; }
+.panel-d .panel-img{ height:auto; border-right:2px solid #111; border-bottom:none }
+
+/* 랜덤한 듯 보이는 기울기 (순서에 따라) */
+.panel-0{ transform:rotate(-1.2deg) }
+.panel-1{ transform:rotate(.6deg) }
+.panel-2{ transform:rotate(-.4deg) }
+.panel-3{ transform:rotate(.8deg) }
