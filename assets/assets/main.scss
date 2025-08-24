@@ -1,0 +1,59 @@
+---
+---
+
+/* = Minima 변수(기본 색감 바꾸기) */
+$brand-color:       #2155ff;   // 포인트 블루
+$link-base-color:   #2155ff;
+$text-color:        #0b0f18;
+$background-color:  #ffffff;
+
+/* = 본문/헤더 폰트 (웹폰트는 아래 2단계에서 불러옴) */
+$base-font-family:  -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+                    "Noto Sans KR", system-ui, Segoe UI, Roboto, Arial, sans-serif;
+$headings-font-family: "Nanum Myeongjo", "Cormorant Garamond", ui-serif, Georgia, serif;
+
+/* Minima의 기본 스타일 불러오기 */
+@import "minima";
+
+/* = 커스텀: 파란 점 모눈 배경 + 잉크 느낌 헤더 */
+body {
+  line-height: 1.8;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(33,85,255,.16) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.site-title {
+  font-family: "Nanum Myeongjo", "Cormorant Garamond", ui-serif, Georgia, serif;
+  font-style: italic;         /* 만년필 느낌 */
+  letter-spacing: .3px;
+}
+
+.post-title,
+.page-heading,
+.page-title {
+  font-family: "Nanum Myeongjo", "Cormorant Garamond", ui-serif, Georgia, serif;
+  font-style: italic;
+}
+
+/* 상단 네비 간격 살짝 정리 */
+.site-nav .page-link { padding: 0 .4rem; }
+
+/* 카드 같은 구획(원하면 섹션마다 사용) */
+.card {
+  background:#fff;
+  border: 1px solid #e6ebff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 1px 0 rgba(33,85,255,.05);
+  margin: 14px 0;
+}
+
+/* (선택) 다크모드 자동: 시스템이 다크일 때만 */
+@media (prefers-color-scheme: dark) {
+  html { color-scheme: dark; }
+  body { background-color: #0b0f18;
+         background-image: radial-gradient(circle at 1px 1px, rgba(100,140,255,.18) 1px, transparent 1px);}
+  .site-title, .post-title, .page-title { color: #e8ecff; }
+  a { color: #9bb3ff; }
+}
