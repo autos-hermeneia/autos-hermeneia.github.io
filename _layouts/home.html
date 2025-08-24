@@ -3,10 +3,11 @@ layout: default
 ---
 
 <div class="home analog-bg">
+  <!-- 상단 타이틀/부제 -->
   <header class="masthead">
     <h1 class="mast-title">{{ site.title }}</h1>
-    {% if site.description %}<p class="mast-sub">{{ page.subtitle | default: site.description }}</p>
-{% endif %}
+    {% assign sub = page.subtitle | default: site.description %}
+    {% if sub %}<p class="mast-sub">{{ sub }}</p>{% endif %}
   </header>
 
   {%- assign posts = site.posts -%}
@@ -14,14 +15,16 @@ layout: default
   {%- assign s = posts[1] -%}
   {%- assign t = posts[2] -%}
 
+  <!-- 잡지형 그리드: 좌측 특집 + 우측 상/하 -->
   <section class="mag-grid">
-    <!-- FEATURE (좌측 큰 카드) -->
+
     {% if f %}
     <article class="feature card">
-      <a class="photo {{ f.frame | default: 'frame' }}" href="{{ f.url | relative_url }}">
-        <div class="img" style="background-image:url('{{ f.thumb | default: '/assets/placeholder.jpg' | relative_url }}')"></div>
-        <span class="tape tl"></span><span class="tape tr"></span>
+      {% if f.thumb %}
+      <a class="photo frame" href="{{ f.url | relative_url }}">
+        <div class="img" style="background-image:url('{{ f.thumb | relative_url }}')"></div>
       </a>
+      {% endif %}
       <div class="meta">
         <h2 class="title"><a href="{{ f.url | relative_url }}">{{ f.title }}</a></h2>
         <p class="date">{{ f.date | date: "%Y.%m.%d" }}</p>
@@ -30,35 +33,39 @@ layout: default
     </article>
     {% endif %}
 
-    <!-- 우측 상단/하단 카드 -->
     {% if s %}
     <article class="side top card">
-      <a class="photo {{ s.frame | default: 'frame' }}" href="{{ s.url | relative_url }}">
-        <div class="img" style="background-image:url('{{ s.thumb | default: '/assets/placeholder.jpg' | relative_url }}')"></div>
-        <span class="tape tl"></span>
+      {% if s.thumb %}
+      <a class="photo frame" href="{{ s.url | relative_url }}">
+        <div class="img" style="background-image:url('{{ s.thumb | relative_url }}')"></div>
       </a>
+      {% endif %}
       <div class="meta">
         <h3 class="title"><a href="{{ s.url | relative_url }}">{{ s.title }}</a></h3>
         <p class="date">{{ s.date | date: "%Y.%m.%d" }}</p>
+        {% if s.excerpt %}<p class="excerpt">{{ s.excerpt | strip_html | truncate: 110 }}</p>{% endif %}
       </div>
     </article>
     {% endif %}
 
     {% if t %}
     <article class="side bottom card">
-      <a class="photo {{ t.frame | default: 'frame' }}" href="{{ t.url | relative_url }}">
-        <div class="img" style="background-image:url('{{ t.thumb | default: '/assets/placeholder.jpg' | relative_url }}')"></div>
-        <span class="tape bl"></span>
+      {% if t.thumb %}
+      <a class="photo frame" href="{{ t.url | relative_url }}">
+        <div class="img" style="background-image:url('{{ t.thumb | relative_url }}')"></div>
       </a>
+      {% endif %}
       <div class="meta">
         <h3 class="title"><a href="{{ t.url | relative_url }}">{{ t.title }}</a></h3>
         <p class="date">{{ t.date | date: "%Y.%m.%d" }}</p>
+        {% if t.excerpt %}<p class="excerpt">{{ t.excerpt | strip_html | truncate: 110 }}</p>{% endif %}
       </div>
     </article>
     {% endif %}
+
   </section>
 
-  <!-- 더 보기: 신문 지면처럼 두 단 컬럼 -->
+  <!-- 신문 두 단 목록 -->
   <section class="more">
     <h2 class="section-title">More</h2>
     <div class="columns">
