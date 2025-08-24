@@ -5,7 +5,8 @@ layout: default
 <div class="home analog-bg">
   <header class="masthead">
     <h1 class="mast-title">{{ site.title }}</h1>
-    {% if site.description %}<p class="mast-sub">{{ site.description }}</p>{% endif %}
+    {% if site.description %}<p class="mast-sub">{{ page.subtitle | default: site.description }}</p>
+{% endif %}
   </header>
 
   {%- assign posts = site.posts -%}
