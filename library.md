@@ -4,11 +4,17 @@ title: Library
 permalink: /library/
 ---
 
-<!-- 상단 카테고리 링크(앵커) -->
-<h2 style="margin-bottom:0.2rem;"><a href="#books">Books</a></h2>
-<h2 style="margin-bottom:0.2rem;"><a href="#films">Films</a></h2>
-<h2 style="margin-bottom:0.2rem;"><a href="#songs">Songs</a></h2>
-<h2 style="margin-bottom:1.5rem;"><a href="#words">Words</a></h2>
+<a id="top"></a>
+
+<!-- 상단 카테고리 메뉴 -->
+<nav>
+  <ul>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#films">Films</a></li>
+    <li><a href="#songs">Songs</a></li>
+    <li><a href="#words">Words</a></li>
+  </ul>
+</nav>
 
 <hr/>
 
@@ -22,6 +28,7 @@ permalink: /library/
   </li>
 {% endfor %}
 </ul>
+<p><a href="#top">↑ Back to top</a></p>
 
 <!-- Films 섹션 -->
 <h2 id="films">Films</h2>
@@ -33,6 +40,7 @@ permalink: /library/
   </li>
 {% endfor %}
 </ul>
+<p><a href="#top">↑ Back to top</a></p>
 
 <!-- Songs 섹션 -->
 <h2 id="songs">Songs</h2>
@@ -44,6 +52,7 @@ permalink: /library/
   </li>
 {% endfor %}
 </ul>
+<p><a href="#top">↑ Back to top</a></p>
 
 <!-- Words 섹션 -->
 <h2 id="words">Words</h2>
@@ -55,3 +64,4 @@ permalink: /library/
   </li>
 {% endfor %}
 </ul>
+<p><a href="#top">↑ Back to top</a></p>
