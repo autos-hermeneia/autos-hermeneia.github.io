@@ -4,13 +4,16 @@ title: Library
 permalink: /library/
 ---
 
----
-layout: page
-title: Library
-permalink: /library/
----
+<!-- 상단 카테고리 링크(앵커) -->
+<h2 style="margin-bottom:0.2rem;"><a href="#books">Books</a></h2>
+<h2 style="margin-bottom:0.2rem;"><a href="#films">Films</a></h2>
+<h2 style="margin-bottom:0.2rem;"><a href="#songs">Songs</a></h2>
+<h2 style="margin-bottom:1.5rem;"><a href="#words">Words</a></h2>
 
-<h2>Books</h2>
+<hr/>
+
+<!-- Books 섹션 -->
+<h2 id="books">Books</h2>
 <ul>
 {% for post in site.categories.books %}
   <li>
@@ -19,8 +22,10 @@ permalink: /library/
   </li>
 {% endfor %}
 </ul>
+<p><a href="#top">↑ Back to top</a></p>
 
-<h2>Films</h2>
+<!-- Films 섹션 -->
+<h2 id="films">Films</h2>
 <ul>
 {% for post in site.categories.films %}
   <li>
@@ -29,8 +34,10 @@ permalink: /library/
   </li>
 {% endfor %}
 </ul>
+<p><a href="#top">↑ Back to top</a></p>
 
-<h2>Songs</h2>
+<!-- Songs 섹션 -->
+<h2 id="songs">Songs</h2>
 <ul>
 {% for post in site.categories.songs %}
   <li>
@@ -39,8 +46,10 @@ permalink: /library/
   </li>
 {% endfor %}
 </ul>
+<p><a href="#top">↑ Back to top</a></p>
 
-<h2>Words</h2>
+<!-- Words 섹션 -->
+<h2 id="words">Words</h2>
 <ul>
 {% for post in site.categories.words %}
   <li>
@@ -49,3 +58,4 @@ permalink: /library/
   </li>
 {% endfor %}
 </ul>
+<p><a href="#top">↑ Back to top</a></p>
