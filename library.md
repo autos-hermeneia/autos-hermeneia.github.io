@@ -22,7 +22,6 @@ permalink: /library/
   </li>
 {% endfor %}
 </ul>
-<p><a href="#top">↑ Back to top</a></p>
 
 <!-- Films 섹션 -->
 <h2 id="films">Films</h2>
@@ -34,7 +33,6 @@ permalink: /library/
   </li>
 {% endfor %}
 </ul>
-<p><a href="#top">↑ Back to top</a></p>
 
 <!-- Songs 섹션 -->
 <h2 id="songs">Songs</h2>
@@ -46,7 +44,6 @@ permalink: /library/
   </li>
 {% endfor %}
 </ul>
-<p><a href="#top">↑ Back to top</a></p>
 
 <!-- Words 섹션 -->
 <h2 id="words">Words</h2>
@@ -58,4 +55,3 @@ permalink: /library/
   </li>
 {% endfor %}
 </ul>
-<p><a href="#top">↑ Back to top</a></p>
